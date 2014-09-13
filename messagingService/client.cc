@@ -6,7 +6,8 @@ Client::Client() {
     buf_ = new char[buflen_+1];
 }
 
-Client::~Client() {
+Client::~Client(bool debug) {
+    debug_ = debug;
 }
 
 void Client::run() {
@@ -25,6 +26,35 @@ Client::close_socket() {
 
 void
 Client::get_user_command() {
+    string line, command, user, subject, message;
+    int index;
+    istringstream is;
+    
+    // loop to handle user interface
+    while (getline(cin,line)) {
+        cout << "%";
+        is = new istringstream(line);
+        is >> command;
+        if(command == "send") {
+
+        }
+        else if (command == "list")
+        {
+            /* code */
+        }
+        else if (command == "read") {
+
+        }
+        else if (command == "quit") {
+
+        }
+        else {
+            cout << "Invalid Command" << endl;
+        }
+    }
+    close_socket();
+
+    /*
     string line;
     
     // loop to handle user interface
@@ -43,6 +73,7 @@ Client::get_user_command() {
             break;
     }
     close_socket();
+    */
 }
 
 bool

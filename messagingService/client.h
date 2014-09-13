@@ -17,7 +17,7 @@ using namespace std;
 
 class Client {
 public:
-    Client();
+    Client(bool);
     ~Client();
 
     void run();
@@ -32,4 +32,5 @@ protected:
     int server_;
     int buflen_;
     char* buf_;
+    bool debug_;
 };
