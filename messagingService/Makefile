@@ -2,20 +2,18 @@
 
 CXX=			g++ $(CCFLAGS)
 
-# MESSAGE-SERVER=		message-server.o inet-server.o server.o
+MESSAGE-SERVER=		message-server.o inet-server.o server.o
 MESSAGE-CLIENT=		message-client.o inet-client.o client.o
-OBJS =			$(MESSAGE-CLIENT)
-# $(MESSAGE-SERVER) 
+OBJS =			$(MESSAGE-SERVER) $(MESSAGE-CLIENT)
 
 LIBS=
-MESSAGE
+
 CCFLAGS= -g
 
-all:	message-client
-	# message-server 
+all:	message-server message-client
 
-# message-server:$(MESSAGE-SERVER)
-# 	$(CXX) -o server $(MESSAGE-SERVER) $(LIBS)
+message-server:$(MESSAGE-SERVER)
+	$(CXX) -o server $(MESSAGE-SERVER) $(LIBS)
 
 message-client:$(MESSAGE-CLIENT)
 	$(CXX) -o client $(MESSAGE-CLIENT) $(LIBS)

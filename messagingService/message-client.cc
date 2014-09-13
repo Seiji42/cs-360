@@ -7,9 +7,10 @@
 
 using namespace std;
 
-int int main(int argc, char **argv)
+int
+main(int argc, char **argv)
 {
-	int option;
+    int option;
 
     // setup default arguments
     int port = 3000;
@@ -18,7 +19,7 @@ int int main(int argc, char **argv)
 
     // process command line options using getopt()
     // see "man 3 getopt"
-    while ((option = getopt(argc,argv,"h::p::d::")) != -1) { // for now, all options are optional
+    while ((option = getopt(argc,argv,"h:p:d::")) != -1) {
         switch (option) {
             case 'p':
                 port = atoi(optarg);
@@ -30,11 +31,12 @@ int int main(int argc, char **argv)
                 debug = true;
                 break;
             default:
-                cout << "client [-h host] [-p port]" << endl;
+                cout << "client [-h host] [-p port] [-d]" << endl;
                 exit(EXIT_FAILURE);
         }
     }
 
-    InetClient client = InetClient(host, port, debugger);
+    InetClient client = InetClient(host, port, debug);
     client.run();
 }
+

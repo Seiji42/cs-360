@@ -1,19 +1,19 @@
 #include "client.h"
 
-Client::Client() {
+Client::Client(bool debug{
     // setup variables
     buflen_ = 1024;
     buf_ = new char[buflen_+1];
-}
-
-Client::~Client(bool debug) {
     debug_ = debug;
 }
 
+Client::~Client() {
+}
+
 void Client::run() {
-    // connect to the server and run echo program
+    // connect to the server and run message program
     create();
-    get_user_command();
+    message();
 }
 
 void
@@ -25,36 +25,7 @@ Client::close_socket() {
 }
 
 void
-Client::get_user_command() {
-    string line, command, user, subject, message;
-    int index;
-    istringstream is;
-    
-    // loop to handle user interface
-    while (getline(cin,line)) {
-        cout << "%";
-        is = new istringstream(line);
-        is >> command;
-        if(command == "send") {
-
-        }
-        else if (command == "list")
-        {
-            /* code */
-        }
-        else if (command == "read") {
-
-        }
-        else if (command == "quit") {
-
-        }
-        else {
-            cout << "Invalid Command" << endl;
-        }
-    }
-    close_socket();
-
-    /*
+Client::message() {
     string line;
     
     // loop to handle user interface
@@ -73,7 +44,6 @@ Client::get_user_command() {
             break;
     }
     close_socket();
-    */
 }
 
 bool

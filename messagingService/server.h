@@ -1,7 +1,7 @@
 #pragma once
 
 #include <errno.h>
-#include <netdb.h>
+#include <netinet/in.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,28 +9,26 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
-#include <fstream>
-#include <iostream>
 #include <string>
 
 using namespace std;
 
-class Client {
+class Server {
 public:
-    Client();
-    ~Client();
+    Server();
+    ~Server();
 
     void run();
-
+    
 protected:
     virtual void create();
     virtual void close_socket();
-    void message();
-    bool send_request(string);
-    bool get_response();
+    void serve();
+    void handle(int);
+    string get_request(int);
+    bool send_response(int, string);
 
     int server_;
     int buflen_;
     char* buf_;
-    bool debug_;
 };
