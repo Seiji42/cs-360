@@ -7,7 +7,7 @@
 class InetClient : public Client {
 
 public:
-    InetClient(string, int);
+    InetClient(string, int, bool);
     ~InetClient();
 
 protected:

@@ -1,6 +1,7 @@
 #include "inet-client.h"
 
-InetClient::InetClient(string host, int port) {
+InetClient::InetClient(string host, int port, bool debug)
+:Client(debug) {
     host_ = host;
     port_ = port;
 }
