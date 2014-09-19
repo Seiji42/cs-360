@@ -13,10 +13,10 @@ CCFLAGS= -g
 all:	message-server message-client
 
 message-server:$(MESSAGE-SERVER)
-	$(CXX) -o server $(MESSAGE-SERVER) $(LIBS)
+	$(CXX) -o msgd $(MESSAGE-SERVER) $(LIBS)
 
 message-client:$(MESSAGE-CLIENT)
-	$(CXX) -o client $(MESSAGE-CLIENT) $(LIBS)
+	$(CXX) -o msg $(MESSAGE-CLIENT) $(LIBS)
 
 clean:
 	rm -f $(OBJS) $(OBJS:.o=.d)

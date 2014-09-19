@@ -1,6 +1,7 @@
 #include "inet-server.h"
 
-InetServer::InetServer(int port) {
+InetServer::InetServer(int port, bool debugger) 
+    : Server(debugger){
     // setup variables
     port_ = port;
 }

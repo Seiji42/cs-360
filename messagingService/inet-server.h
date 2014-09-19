@@ -7,7 +7,7 @@
 class InetServer : public Server {
 
 public:
-    InetServer(int);
+    InetServer(int, bool);
     ~InetServer();
 
 protected:
