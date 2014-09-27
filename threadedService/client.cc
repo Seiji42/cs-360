@@ -102,6 +102,9 @@ Client::analyze_request(vector<string> & tokens) {
             }
         }
     }
+    else if (tokens.at(0) == "error") {
+        //TODO add stuff here
+    }
     return response;
 }
 
